@@ -14,10 +14,13 @@ function createGrid(n) {
                             - Math.ceil(WIDTH/(10*n+n**2/10))).toString() + "px";
             square.style.height = scaledHeight;
             square.style.width = scaledHeight;
+            square.addEventListener("mousemove", () => {
+                square.style.backgroundColor = "white";
+            });
             row.appendChild(square)
         }
         container.appendChild(row);
     }
 }
 
-createGrid(16);
+createGrid(64);
