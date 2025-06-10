@@ -22,3 +22,9 @@
 .square {
     background-color: black;
 }
+
+.resize {
+    background-color: rgb(115, 115, 115);
+    color: white;
+    margin-bottom: 5px;
+}

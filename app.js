@@ -6,7 +6,7 @@ let startDate = Date.now();
 
 function createGrid(n) {
     // Creates an nxn grid of squares in the html. 
-    // n <= 100
+    // requires: n <= 100
     if (n > 100) {
         alert("Number of squares can be at most 100!")
         return;
@@ -32,6 +32,14 @@ function createGrid(n) {
     }
 }
 
+function removeGrid() {
+    // Removes the grid from the DOM
+    let container = document.querySelector(".container");
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
 function setup() {
     // For RGB wheel pallete
     colorMode(HSB);
@@ -52,4 +60,18 @@ function getRandomColor() {
     return rgbArray[Math.floor(getElapsedTime()*COLOR_SPEED)%DEG]
 }
 
+resizeButton = document.querySelector(".resize");
+resizeButton.addEventListener("click", () => {
+            let numSquare = prompt("Choose number"
+            +" of squares per side for new grid (must be between 1 - 100):")
+            if (numSquare > 100) {
+                alert("Number of squares can be at most 100!")
+                return;
+            } else if (numSquare < 1) {
+                alert("Number of squares can be more than 1!")
+                return;
+            }
+            removeGrid();
+            createGrid(numSquare);
+            });
 createGrid(32);
